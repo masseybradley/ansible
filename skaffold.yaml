@@ -1,0 +1,15 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+build:
+  artifacts:
+  - image: ansible
+    docker:
+      network: host
+      cacheFrom:
+      - ubuntu:18.04
+      noCache: false
+  local:
+    push: false
+    useBuildkit: true
+  tagPolicy:
+    gitCommit: {}
